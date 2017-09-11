@@ -2,7 +2,7 @@
     <header class="header">
         <ul class="header__items">
             <li v-for="item in items" class="header__item">
-                <a :href="item.href" :target="item.target" class="header__link">
+                <a :href="item.href" :target="item.target" rel="noopener noreferrer" class="header__link">
                     <span :class="`icon icon--${item.icon}`"></span>
                 </a>
             </li>
