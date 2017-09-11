@@ -1,0 +1,28 @@
+
+.footer {
+    @include make-container;
+
+    &__content {
+        @include make-row;
+
+        padding: 2rem 0;
+        opacity: .6;
+    }
+
+    &__info,
+    &__tease {
+        @include make-col-ready;
+        @include make-col(12);
+    }
+
+    @include media-breakpoint-up(sm) {
+        &__info,
+        &__tease {
+            @include make-col(6);
+        }
+
+        &__tease {
+            text-align: right;
+        }
+    }
+}

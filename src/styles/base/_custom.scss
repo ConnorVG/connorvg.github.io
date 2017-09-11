@@ -1,0 +1,19 @@
+
+a,
+a:active,
+a:hover,
+a:focus {
+    font-weight: 700;
+}
+
+q {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-skip: ink;
+    -webkit-text-decoration-skip: ink;
+
+    &:before,
+    &:after {
+        display: none;
+    }
+}
