@@ -1,11 +1,16 @@
 
 .footer {
     @include make-container;
+    @include make-container-max-widths;
+
+    font-family: $font-family-serif;
+    font-size: .8rem;
 
     &__content {
         @include make-row;
 
-        padding: 2rem 0;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
         opacity: .6;
     }
 
@@ -23,6 +28,15 @@
 
         &__tease {
             text-align: right;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        font-size: 1rem;
+
+        &__content {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
         }
     }
 }

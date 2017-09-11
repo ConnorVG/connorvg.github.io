@@ -19,6 +19,7 @@
     }
 
     &__tagline {
+        font-family: $font-family-monospace;
         transition: opacity 0.2s ease-in;
         font-size: 1rem;
         opacity: .6;
