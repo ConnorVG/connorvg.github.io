@@ -14,6 +14,8 @@ const { mix } = require('laravel-mix');
 mix.sass('src/styles/app.scss', 'public/styles')
     .js('src/scripts/app.js', 'public/scripts')
     .extract(['vue', 'lodash'])
+    .copy('src/static/article/*', 'public/static/article')
+    .copy('src/static/code/laravel-acl/*', 'public/static/code/laravel-acl')
     .copy('src/static/*', 'public/static');
 
 if (! mix.config.inProduction) {

@@ -12,6 +12,10 @@
     padding-bottom: 1rem;
     transform: translateX(-50%);
 
+    .page--article & {
+        position: absolute;
+    }
+
     &__items {
         @include make-row;
 

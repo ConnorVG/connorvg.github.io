@@ -1,0 +1,78 @@
+/* Tomorrow Night Eighties Theme */
+
+
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+.hljs-tomorrow-comment,
+.hljs-comment {
+    color: #999999;
+}
+
+.hljs-tomorrow-red,
+.hljs-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-regexp,
+.hljs-ruby .hljs-constant,
+.hljs-xml .hljs-tag .hljs-title,
+.hljs-xml .hljs-pi,
+.hljs-xml .hljs-doctype,
+.hljs-html .hljs-doctype,
+.hljs-css .hljs-id,
+.hljs-css .hljs-class,
+.hljs-css .hljs-pseudo {
+    color: #f2777a;
+}
+
+.hljs-tomorrow-orange,
+.hljs-number,
+.hljs-preprocessor,
+.hljs-built_in,
+.hljs-literal,
+.hljs-params,
+.hljs-constant {
+    color: #f99157;
+}
+
+.hljs-tomorrow-yellow,
+.hljs-class,
+.hljs-ruby .hljs-class .hljs-title,
+.hljs-css .hljs-rules .hljs-attribute {
+    color: #ffcc66;
+}
+
+.hljs-tomorrow-green,
+.hljs-string,
+.hljs-value,
+.hljs-inheritance,
+.hljs-header,
+.hljs-ruby .hljs-symbol,
+.hljs-xml .hljs-cdata {
+    color: #99cc99;
+}
+
+.hljs-tomorrow-aqua,
+.hljs-css .hljs-hexcolor {
+    color: #66cccc;
+}
+
+.hljs-tomorrow-blue,
+.hljs-function,
+.hljs-python .hljs-decorator,
+.hljs-python .hljs-title,
+.hljs-ruby .hljs-function .hljs-title,
+.hljs-ruby .hljs-title .hljs-keyword,
+.hljs-perl .hljs-sub,
+.hljs-javascript .hljs-title,
+.hljs-coffeescript .hljs-title {
+    color: #9effb4;
+}
+
+.hljs-tomorrow-purple,
+.hljs-keyword,
+.hljs-javascript .hljs-function {
+    color: #cc99cc;
+}

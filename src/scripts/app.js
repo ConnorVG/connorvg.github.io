@@ -14,6 +14,14 @@ import Vue from 'vue';
  */
 
 Vue.component('u-app', require('./components/App.vue'));
+Vue.component('u-main', require('./components/Main.vue'));
+
+Vue.component('u-share', require('./components/Share.vue'));
+
+Vue.component('u-code', require('./components/Code.vue'));
+Vue.component('u-article', require('./components/Article.vue'));
+
+Vue.component('u-laravel-acl', require('./components/fun/LaravelAcl.vue'));
 
 const app = new Vue({
     el: '#app',

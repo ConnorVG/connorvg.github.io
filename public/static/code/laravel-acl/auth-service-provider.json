@@ -1,0 +1,5 @@
+{
+  "type": "PHP",
+  "name": "App\\Providers\\AuthServiceProvider",
+  "content": "namespace App\\Providers;\n\nuse App\\Support\\Authorisation\\Gate as AppGate;\nuse Illuminate\\Contracts\\Auth\\Access\\Gate as IlluminateGate;\nuse Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider as ServiceProvider;\n\nclass AuthServiceProvider extends ServiceProvider\n{\n    public function boot(): void\n    {\n        $this->app[IlluminateGate::class]->before([$this->app[AppGate::class], 'authorise']);\n    }\n}"
+}

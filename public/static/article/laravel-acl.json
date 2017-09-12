@@ -1,0 +1,14 @@
+{
+  "title": "ACL in Laravel",
+  "description": "a totally unopinionated method of ACL",
+  "blocks": [
+    ">Before we start, let me preface this article with something: this article is **100%** opinionated. If something is written, spoken or otherwise output by someone then it is bound to be opinionated. In this article, I make no attempt to avoid my opinions.",
+    "I've seen **many** variations on implementing [ACL](https://en.wikipedia.org/wiki/Access_control_list) in Laravel. I feel that's it's upsettingly common to take over a project and find that the \"_awesome custom ACL implementation_\" is actually complete and utter garbage. So... Welcome to my [KISS](https://en.wikipedia.org/wiki/KISS_principle) variation of \"ACL in Laravel\".",
+    "Going from the bottom to the top, the three major models we'll be requiring here are `Permission`, `Role` and `User`. The relationships between these models are very simple. A `Role` model can have many `Permission` models, a `Permission` model can belong to many `Role` models. A `User` model can belong to one `Role` model, a `Role` model can have many `User` models.\n\nLet's start by breaking down the `Permission` model. We know that it needs to:\n - be attachable to `Role` models;\n - be easily comparable with actions;\n - have a pretty name (not necessary but a **great** bonus).\n\nFrom that, we extract the basic fields: `id`, `identifier`, `name` and `description`. `id` is simply used for primary-key purposes, `identifier` will be used for compoarisons when guarding actions, `name` and `description` will be used solely for display purposes.",
+    {
+      "type": "code",
+      "files": ["laravel-acl/permission", "laravel-acl/permission-migration"]
+    },
+    "In the next article, I will show you how this method of ACL can easily be adapted to allow multiple `Role` models assigned per `User` model."
+  ]
+}
