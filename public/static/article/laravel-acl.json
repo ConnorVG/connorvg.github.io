@@ -29,7 +29,7 @@
       "type": "code",
       "files": ["laravel-acl/auth-service-provider"]
     },
-    "Woo!\n\nYou can now add permission based authorization by attaching a role with permissions to a user and utilising the built in [Laravel Gate](https://laravel.com/docs/5.5/authorization#gates). Any of the built in consumption methods will now go through this authorization check. That includes:\n - `can` middleware, such as `can:some-identifier`;\n - `@can` blade tags, such as `@can('some-identifier');`\n - `->allows()` [`AuthorizesRequests`](https://laravel.com/api/5.5/Illuminate/Foundation/Auth/Access/AuthorizesRequests.html) calls;\n - Any 'built-in' future additions to this gate.",
+    "Woo!\n\nYou can now add permission based authorization by attaching a role with permissions to a user and utilising the built in [Laravel Gate](https://laravel.com/docs/5.5/authorization#gates). Any of the built in consumption methods will now go through this authorization check. That includes:\n - `can` middleware, such as `can:some-identifier`;\n - `@can` blade tags, such as `@can('some-identifier')`;\n - `->allows()` [`AuthorizesRequests`](https://laravel.com/api/5.5/Illuminate/Foundation/Auth/Access/AuthorizesRequests.html) calls;\n - Any 'built-in' future additions to this gate.",
     "In the next article, I will show you how this method of ACL can easily be adapted to allow multiple `Role` models assigned per `User` model."
   ]
 }
