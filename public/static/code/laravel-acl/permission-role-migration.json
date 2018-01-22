@@ -1,0 +1,5 @@
+{
+  "type": "PHP",
+  "name": "create_permission_role_table",
+  "content": "use Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nclass CreatePermissionRoleTable extends Migration\n{\n    public function up(): void\n    {\n        Schema::create('permission_role', function (Blueprint $table) {\n            $table->increments('id');\n\n            $table->integer('permission_id')->unsigned();\n            $table->foreign('permission_id')\n                ->references('id')->on('permissions')\n                ->onUpdate('CASCADE')->onDelete('CASCADE');\n\n            $table->integer('role_id')->unsigned();\n            $table->foreign('role_id')\n                ->references('id')->on('roles')\n                ->onUpdate('CASCADE')->onDelete('CASCADE');\n\n            $table->timestamps();\n        });\n    }\n\n    public function down(): void\n    {\n        Schema::dropIfExists('permission_role');\n    }\n}"
+}

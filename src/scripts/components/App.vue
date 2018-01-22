@@ -1,10 +1,13 @@
 <template>
     <div :class="{ 'page--article': uContent !== 'main' }">
         <u-header></u-header>
+
         <template v-if="uContent !== 'main'">
             <slot :name="uContent"></slot>
         </template>
+
         <u-main v-else></u-main>
+
         <div class="article-list">
             <ul class="article-list__items">
                 <li v-for="article in articles" class="article-list__item">
@@ -15,6 +18,7 @@
                 </li>
             </ul>
         </div>
+
         <u-footer></u-footer>
     </div>
 </template>

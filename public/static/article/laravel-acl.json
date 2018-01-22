@@ -3,12 +3,33 @@
   "description": "a totally unopinionated method of ACL",
   "blocks": [
     ">Before we start, let me preface this article with something: this article is **100%** opinionated. If something is written, spoken or otherwise output by someone then it is bound to be opinionated. In this article, I make no attempt to avoid my opinions.",
-    "I've seen **many** variations on implementing [ACL](https://en.wikipedia.org/wiki/Access_control_list) in Laravel. I feel that's it's upsettingly common to take over a project and find that the \"_awesome custom ACL implementation_\" is actually complete and utter garbage. So... Welcome to my [KISS](https://en.wikipedia.org/wiki/KISS_principle) variation of \"ACL in Laravel\".",
-    "Going from the bottom to the top, the three major models we'll be requiring here are `Permission`, `Role` and `User`. The relationships between these models are very simple. A `Role` model can have many `Permission` models, a `Permission` model can belong to many `Role` models. A `User` model can belong to one `Role` model, a `Role` model can have many `User` models.\n\nLet's start by breaking down the `Permission` model. We know that it needs to:\n - be attachable to `Role` models;\n - be easily comparable with actions;\n - have a pretty name (not necessary but a **great** bonus).\n\nFrom that, we extract the basic fields: `id`, `identifier`, `name` and `description`. `id` is simply used for primary-key purposes, `identifier` will be used for compoarisons when guarding actions, `name` and `description` will be used solely for display purposes.",
+    "I've seen **many** variations on implementing [ACL](https://en.wikipedia.org/wiki/Access_control_list) in Laravel. I feel that it's upsettingly common to take over a project and find that the _\"awesome custom ACL implementation\"_ is actually complete and utter garbage. So... Welcome to my [KISS](https://en.wikipedia.org/wiki/KISS_principle) variation of \"ACL in Laravel\".",
+    "Going from the bottom to the top, the three major models we'll be requiring here are `Permission`, `Role` and `User`. The relationships between these models are very simple. A `Role` model can have many `Permission` models, a `Permission` model can belong to many `Role` models. A `User` model can belong to one `Role` model, a `Role` model can have many `User` models.\n\nLet's start by breaking down the `Permission` model. We know that it needs to:\n - be attachable to `Role` models;\n - be easily comparable with actions;\n - have a pretty name (not necessary but a **great** bonus).\n\nFrom that, we extract the basic fields: `id`, `identifier`, `name` and `description`. `id` is simply used for primary-key purposes, `identifier` will be used for comparisons when guarding actions, `name` and `description` will be used solely for display purposes.",
     {
       "type": "code",
       "files": ["laravel-acl/permission", "laravel-acl/permission-migration"]
     },
+    "Now, using that logic, let's form the `Role` model _(all jokes aside)_. It needs to:\n - be attachable to `Permission` models;\n - be associatable with `User` models;\n - be reasonably represented visually (ie \"Administrator Connor\");\n\nFrom that, again, we extract: `id`, `name`, `description`. `id` again is for primary-key purposes, `name` and `description` are for visual representation.",
+    {
+      "type": "code",
+      "files": ["laravel-acl/role", "laravel-acl/role-migration"]
+    },
+    "Now that we have the base models, we need to attach them. This is pretty self-explanatory (add the relation to the User model and add the migration for roles ⟨ ⟩ permissions).",
+    {
+      "type": "code",
+      "files": ["laravel-acl/user", "laravel-acl/permission-role-migration"]
+    },
+    "Once we have all this data, it's as simple as extending the built in [Laravel Gate](https://laravel.com/docs/5.5/authorization#gates) via its \"before\" hook. We receive three parameters that give us full context on whether or not we should allow a user to do _X_ or _Y_. The three parameters are:\n - `$user`: the instance of `Authenticatable` that is requesting the authorization (could be null for a guest);\n - `$ability`: the requested ability (ie: what you pass to `@can('hello')` === `'hello'`);\n - `$arguments`: any additional arguments passed through the authorization check (ie: `@can('hello', ['some' => 'option'])` === `['some' => 'option']`).\n\nFirst we will make the hook handler, it is stupidly simple. We take these parameters and check if the users permission list contains the passed `$ability` key (or a match of, ie: `admin.*` would match `admin.dashboard`). This is a simple case of getting the `$user->role->permissions` and mapping them to be a simple collection of `identifier` fields.",
+    {
+      "type": "code",
+      "files": ["laravel-acl/gate"]
+    },
+    "Then, as previously mentioned, we just need to register this as a callback on the \"before\" hook for the [Laravel Gate](https://laravel.com/docs/5.5/authorization#gates). We can do this by simply adding it to the `AuthServiceProvider`.",
+    {
+      "type": "code",
+      "files": ["laravel-acl/auth-service-provider"]
+    },
+    "Bob's your uncle!\n\nYou can now add permission based authorization by attaching a role with permissions to a user and utilising the built in [Laravel Gate](https://laravel.com/docs/5.5/authorization#gates). Any of the built in consumption methods will now go through this authorization check. That includes:\n - `can` middleware, such as `can:some-identifier`;\n - `@can` blade tags, such as `@can('some-identifier`);\n - `->allows()` [`AuthorizesRequests`](https://laravel.com/api/5.5/Illuminate/Foundation/Auth/Access/AuthorizesRequests.html) calls;\n - Any 'built-in' future additions to this gate.",
     "In the next article, I will show you how this method of ACL can easily be adapted to allow multiple `Role` models assigned per `User` model."
   ]
 }

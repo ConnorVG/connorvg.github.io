@@ -4,6 +4,11 @@
             <li v-for="item in items" class="header__item">
                 <a :href="item.href" :target="item.target" rel="noopener noreferrer" class="header__link">
                     <span :class="`icon icon--${item.icon}`"></span>
+
+                    <div v-if="item.bauble" class="bauble">
+                        <span class="icon icon--arrow-up"></span>
+                        <p v-text="item.bauble"></p>
+                    </div>
                 </a>
             </li>
         </ul>
@@ -23,8 +28,9 @@
                     target: '_blank',
                     icon: 'github',
                 }, {
-                    href: 'mailto:contact@connor-parks.email?subject=Hey&body=I noticed your website is pretty awesome!',
+                    href: 'mailto:contact@connor-parks.email?subject=Hey&body=I am looking for a freelance web developer to...',
                     icon: 'email',
+                    bauble: 'Contact me!',
                 }],
             };
         },
