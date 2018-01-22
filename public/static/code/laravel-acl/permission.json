@@ -1,0 +1,5 @@
+{
+  "type": "PHP",
+  "name": "App\\Models\\Permission",
+  "content": "namespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Model;\nuse Illuminate\\Database\\Eloquent\\Relation\\BelongsToMany;\n\nclass Permission extends Model\n{\n    protected $fillable = ['identifier', 'name', 'description'];\n\n    public function roles(): BelongsToMany\n    {\n        return $this->belongsToMany(Role::class);\n    }\n}"
+}

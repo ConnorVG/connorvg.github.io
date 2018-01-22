@@ -1,0 +1,5 @@
+{
+  "type": "PHP",
+  "name": "create_permissions_table",
+  "content": "use Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nclass CreatePermissionsTable extends Migration\n{\n    public function up(): void\n    {\n        Schema::create('permissions', function (Blueprint $table) {\n            $table->increments('id');\n\n            $table->string('identifier', 255);\n            $table->string('name', 64);\n            $table->string('description')->nullable();\n\n            $table->timestamps();\n        });\n    }\n\n    public function down(): void\n    {\n        Schema::dropIfExists('permissions');\n    }\n}"
+}

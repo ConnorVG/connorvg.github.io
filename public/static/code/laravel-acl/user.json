@@ -1,0 +1,5 @@
+{
+  "type": "PHP",
+  "name": "App\\Models\\User",
+  "content": "namespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Relations\\BelongsTo;\nuse Illuminate\\Foundation\\Auth\\User as Authenticatable;\n\nclass User extends Authenticatable\n{\n    protected $fillable = [\n        'name', 'email', 'password',\n    ];\n\n    protected $hidden = [\n        'password', 'remember_token',\n    ];\n\n    public function role(): BelongsTo\n    {\n        return $this->belongsTo(Role::class);\n    }\n}"
+}

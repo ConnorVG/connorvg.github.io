@@ -10,12 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="Connor S. Parks">
-    <meta name="title" content="Connor S. Parks">
-    <meta name="description" content="Connor S. Parks's official website.">
+    <meta name="title" content="ACL in Laravel">
+    <meta name="description" content="A totally unopinionated method of ACL.">
 
-    <link rel="canonical" href="https://connor-parks.online" />
+    <link rel="canonical" href="https://connor-parks.online/fun/acl-in-laravel" />
 
-    <title>Connor S. Parks</title>
+    <title>ACL in Laravel – Connor S. Parks</title>
 
     <link rel="stylesheet" href="/public/styles/app.css">
 
@@ -42,7 +42,7 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <div id="app" is="u-app">
+    <div id="app" is="u-app" u-content="laravel-acl">
         <header class="header">
             <ul class="header__items">
                 <li class="header__item">
@@ -65,23 +65,12 @@
             </ul>
         </header>
 
-        <main class="main">
-            <div class="main__content">
-                <h1 class="main__title">Connor S. Parks</h1>
-                <span class="main__tagline">an <q cite="https://en.oxforddictionaries.com/definition/epic">epic</q> web developer</span>
+        <article class="article" is="u-article" u-file="laravel-acl" slot="laravel-acl">
+            <div class="article__content">
+                <h1 class="article__title">ACL in Laravel</h1>
+                <p class="article__description">a totally unopinionated method of ACL</p>
             </div>
-        </main>
-
-        <div class="article-list">
-            <ul class="article-list__items">
-                <li class="article-list__item">
-                    <div class="article-list__content">
-                        <a href="/fun/acl-in-laravel" class="article-list__link">ACL in Laravel</a>
-                        <p class="article-list__description">a totally unopinionated method of ACL</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        </article>
 
         <footer class="footer">
             <div class="footer__content">

@@ -13,6 +13,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  &--arrow-up:before {
+    content: "\ea3a";
+  }
+
   &--email:before {
     content: "\e945";
   }
