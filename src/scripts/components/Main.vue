@@ -30,11 +30,10 @@
                 changed: false,
                 interval: null,
                 taglines: [
-                    'an <q cite="https://en.oxforddictionaries.com/definition/epic">epic</q> web developer',
-                    'huge <q cite="https://laravel.com">Laravel</q> enthusiast',
-                    '<q cite="https://vuejs.com">VueJS</q> fiddler',
-                    '<q cite="https://php.net">PHP</q> wizard',
                     'freelance web developer',
+                    'huge <q cite="https://laravel.com">Laravel</q> enthusiast',
+                    'expressive <q cite="https://vuejs.com">VueJS</q> developer',
+                    '<q cite="https://php.net">PHP</q> wizard',
                 ],
             };
         },
